@@ -449,6 +449,11 @@ section{
 
 }
 
+.portfolio .box-container .box .content .work-link:hover{
+    /* box-shadow: var(--box-shadow-inset); */
+    color: var(--black);
+}
+
 
 
 .contact form{

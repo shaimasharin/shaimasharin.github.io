@@ -7,6 +7,7 @@
     <title>Personal Website-Shaima Sharin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <!------header section starts-------->
@@ -74,7 +75,7 @@
                 </div>
 
                 <div class="box">
-                    <h3>45+</h3>
+                    <h3>96+</h3>
                     <p>working hours</p>
                 </div>
 
@@ -224,11 +225,11 @@
 
         <h1 class="heading"><span>contact</span>me</h1>
 
-        <form action="">
-            <input type="text" placeholder="your name" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="text" placeholder="subject" class="box">
-            <textarea name="" class="box" placeholder="your message" id="" cols="30" rows="10"></textarea>
+        <form id="submit-form"  action="">
+            <input name="name" type="text" placeholder="your name" class="box">
+            <input name="email" type="email" placeholder="your email" class="box">
+            <input name="subject" type="text" placeholder="subject" class="box">
+            <textarea name="message" class="box" placeholder="your message" id="" cols="30" rows="10"></textarea>
             <input type="submit" value="send message" class="btn">
         </form>
         
@@ -242,5 +243,24 @@
 
 
     <script src="script.js"></script>
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbwA-cNJzJWzDRN8AJtyoQqGJkoEzcrCWGB5rWhN/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 </body>
 </html>
